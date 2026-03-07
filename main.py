@@ -1,10 +1,29 @@
 from tkinter import *
 from tkinter import messagebox
+import random
 
 Passwords = open("Passwords.txt", "a")
 
 ## Functions:
 # Generating password:
+def generate_password():
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+               'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '@', '#', '$', '%', '^', '&', '*']
+
+    l_num = random.randint(8,10)
+    n_num = random.randint(3,4)
+    s_num = random.randint(3,4)
+
+    password = ([random.choice(letters) for _ in range(l_num)]
+                + [random.choice(numbers) for _ in range(n_num)]
+                + [random.choice(symbols) for _ in range(s_num)])
+
+    random.shuffle(password)
+    password = "".join(password)
+    print(password)
+
 # saving details to the file:
 def saving_data():
     website = website_entry.get()
