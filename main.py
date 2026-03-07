@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import random
+import pyperclip
 
 Passwords = open("Passwords.txt", "a")
 
@@ -22,7 +23,8 @@ def generate_password():
 
     random.shuffle(password)
     password = "".join(password)
-    print(password)
+    password_entry.insert(0, password)
+    pyperclip.copy(password)
 
 # saving details to the file:
 def saving_data():
@@ -70,7 +72,7 @@ password_entry.grid(row=3, column=1)
 add_button = Button(text="Add", width=46, bg="white", command=saving_data)
 add_button.grid(row=4, column=1, columnspan=2)
 
-generate_button = Button(text="Generate Password", bg="white")
+generate_button = Button(text="Generate Password", bg="white", command=generate_password)
 generate_button.grid(row=3, column=2)
 
 window.mainloop()
