@@ -21,4 +21,15 @@ email_entry = Entry(width=46, bg="white")
 email_entry.insert(0, "mortazap53@gmail.com")
 email_entry.grid(row=2, column=1, columnspan=2)
 
+password_label = Label(text="Password:", bg="white")
+password_label.grid(row=3, column=0)
+password_entry = Entry(width=28, bg="white")
+password_entry.grid(row=3, column=1)
+
+add_button = Button(text="Add", width=46, bg="white")
+add_button.grid(row=4, column=1, columnspan=2)
+
+generate_button = Button(text="Generate Password", bg="white")
+generate_button.grid(row=3, column=2)
+
 window.mainloop()
