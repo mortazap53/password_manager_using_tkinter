@@ -1,5 +1,19 @@
 from tkinter import *
 
+Passwords = open("Passwords.txt", "a")
+
+## Functions:
+# saving details to the file:
+def generate_password():
+    website = website_entry.get()
+    email = email_entry.get()
+    password = password_entry.get()
+    with open("passwords.txt", "a") as file:
+        file.write(website + " | " + email + " | " + password + "\n")
+        website_entry.delete(0, END)
+        password_entry.delete(0, END)
+
+## User interface:
 window = Tk()
 window.title("Password Manager")
 window.configure(padx=50, pady=50, bg="white")
