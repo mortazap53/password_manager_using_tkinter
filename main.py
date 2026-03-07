@@ -15,4 +15,10 @@ website_entry = Entry(width=46, bg="white")
 website_entry.focus_set()
 website_entry.grid(row=1, column=1, columnspan=2)
 
+email_label = Label(text="Email/Username:", bg="white")
+email_label.grid(row=2, column=0)
+email_entry = Entry(width=46, bg="white")
+email_entry.insert(0, "mortazap53@gmail.com")
+email_entry.grid(row=2, column=1, columnspan=2)
+
 window.mainloop()
