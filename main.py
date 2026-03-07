@@ -4,8 +4,9 @@ from tkinter import messagebox
 Passwords = open("Passwords.txt", "a")
 
 ## Functions:
+# Generating password:
 # saving details to the file:
-def generate_password():
+def saving_data():
     website = website_entry.get()
     email = email_entry.get()
     password = password_entry.get()
@@ -47,7 +48,7 @@ password_label.grid(row=3, column=0)
 password_entry = Entry(width=28, bg="white")
 password_entry.grid(row=3, column=1)
 
-add_button = Button(text="Add", width=46, bg="white")
+add_button = Button(text="Add", width=46, bg="white", command=saving_data)
 add_button.grid(row=4, column=1, columnspan=2)
 
 generate_button = Button(text="Generate Password", bg="white")
