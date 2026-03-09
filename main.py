@@ -6,6 +6,23 @@ import pyperclip
 import json
 
 ## Functions:
+# Searching for the perviously saved passwords:
+def searching():
+    website = website_entry.get()
+    try:
+        with open("passwords.json", "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showerror("Error",
+                             message="There is no saved passwords file yet!")
+    else:
+        if website in data:
+            email = data.get(website)["email"]
+            password = data.get(website)["password"]
+            messagebox.showinfo(title=website, message=f"Email: {email} \n Password: {password}")
+        else:
+            messagebox.showerror("Error", f"There is no saved passwords attached to this website: {website}")
+
 # Generating password:
 def generate_password():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
@@ -89,5 +106,8 @@ add_button.grid(row=4, column=1, columnspan=2)
 
 generate_button = Button(text="Generate Password", bg="white", command=generate_password)
 generate_button.grid(row=3, column=2)
+
+search_button = Button(text= "Search", bg="white", width=16, command=searching)
+search_button.grid(row=1, column=2)
 
 window.mainloop()
