@@ -1,3 +1,4 @@
+from json import JSONDecodeError
 from tkinter import *
 from tkinter import messagebox
 import random
@@ -43,6 +44,9 @@ def saving_data():
                     data = json.load(file)
 
             except FileNotFoundError:
+                with open("passwords.json", "w") as file:
+                    json.dump(new_data, file, indent=4)
+            except JSONDecodeError:
                 with open("passwords.json", "w") as file:
                     json.dump(new_data, file, indent=4)
             else:
