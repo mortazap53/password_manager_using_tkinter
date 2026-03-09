@@ -1,16 +1,41 @@
+Good — this version is actually a real upgrade. You added two things that matter:
+
+JSON storage instead of plain text
+
+Search functionality
+
+Those are meaningful features, so the README must reflect them. Your previous README is now outdated, especially in:
+
+Features
+
+Usage
+
+File structure
+
+Functionality description
+
+Checklist
+
+Below is a fully updated README, one copy-paste block for GitHub.
+
 # Tkinter Password Manager
 
-A simple **Python GUI password manager** built with Tkinter. Generate strong passwords, store them locally, and copy them to your clipboard instantly.
+A simple **Python GUI Password Manager** built with Tkinter.  
+It can **generate strong passwords, store them in a JSON file, and search for saved credentials**.
 
 ---
 
-## Features
+# Features
 
-- Generate **random strong passwords** with letters, numbers, and symbols.
-- Save passwords with website and email/username to a local file (`passwords.txt`).
-- Automatically copy generated passwords to clipboard.
-- User-friendly GUI interface with Tkinter. Providing two one error popup and another one okchecker popups for user.
-- Pre-fills your email/username for convenience.
+- Generate **strong random passwords** with letters, numbers, and symbols.
+- Automatically **copy generated passwords to clipboard**.
+- Save credentials (**website, email/username, password**) to a **JSON database**.
+- **Search saved passwords by website**.
+- Clean and simple **Tkinter GUI interface**.
+- Error handling for:
+  - Missing password file
+  - Empty fields
+  - Corrupted JSON file
 
 ---
 
@@ -20,12 +45,13 @@ A simple **Python GUI password manager** built with Tkinter. Generate strong pas
 - Click Generate Password to automatically create a strong password.
 - Click Add to save the entry to passwords.txt.
 - The password will also be copied to your clipboard automatically.
+- Searching for the password and email via the attached website.
 
 ## File sructure:
 tk-password-manager/
 ==> main.py          # Main application
 ==> logo.png         # App logo
-==> passwords.txt    # Stored passwords (auto-generated)
+==> passwords.txt    # Stored passwords (auto-generated) (searching password)
 ==> README.md        # This file
 
 ## Development checklist:
@@ -53,6 +79,13 @@ a perfect todo checklist from the begining up to the end of building this projec
  Insert generated password into password entry field ==> [ ].
  Copy generated password to clipboard automatically ==> [ ].
 
+2.3 Searching Passwords
+ Load JSON data ==> [ ].
+ Search website key ==> [ ].
+ Show stored email and password ==> [ ].
+ Show error if website not found ==> [ ].
+ Handle missing JSON file ==> [ ].
+
 3. Testing
    
  Test UI layout and usability ==> [ ].
@@ -61,9 +94,10 @@ a perfect todo checklist from the begining up to the end of building this projec
  Test error handling for empty fields ==> [ ].
  Test clipboard functionality ==> [ ].
 
-Tech Stack
+Technologies Used:
 * Python 3
 * Tkinter (GUI)
+* JSON
 * Pyperclip (clipboard support)
 * Random (password generation)
 
